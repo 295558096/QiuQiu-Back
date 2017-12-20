@@ -70,6 +70,12 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>org.apache.openejb</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>5.0-1</version>
+            <scope>provided</scope>
+        </dependency>
 		<!-- mybatis核心包 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
