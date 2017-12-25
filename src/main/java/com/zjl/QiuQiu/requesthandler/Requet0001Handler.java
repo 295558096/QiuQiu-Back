@@ -1,41 +1,48 @@
 package com.zjl.QiuQiu.requesthandler;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zjl.QiuQiu.model.User;
-import com.zjl.QiuQiu.request.AbstractRequest;
 import com.zjl.QiuQiu.response.Response;
 
 @Controller
 @RequestMapping("/Requet0001Handler")
 public class Requet0001Handler extends RequestHandler {
-	
+
 	@Override
-	protected boolean hasRight(User iUser) {
-		// TODO Auto-generated method stub
+	public boolean hasRight(User iUser) {
 		return false;
 	}
 
 	@Override
-	protected boolean checkParams(Map<String, Serializable> params) {
-		// TODO Auto-generated method stub
+	public boolean checkParams(Map<String, Serializable> params) {
 		return false;
 	}
 
 	@Override
-	protected Response bizHandle(HttpServletRequest request)
+	public Response bizHandle(HttpServletRequest request)
 			throws RuntimeException {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<String,String> map = new HashMap<String,String>();
+		String userAccount = request.getParameter("userAccount");
+		String password = request.getParameter("password");
+		String result = "";
+		if (StringUtils.equals(userAccount, "秋秋") && StringUtils.equals(password, "123123110")) {
+			result = "success";
+			map.put("result", result);
+			return Response.success(map);
+		} else {
+			result = "error";
+			map.put("result", result);
+			return Response.success(map);
+		}
 	}
+
 }

@@ -13,8 +13,4 @@
 
     <!-- 使用注解的依赖注入（DI）管理 -->    
     <context:annotation-config/>
-    <!-- 告诉Spring不用管理@controller标记的类 -->
-<!--     <context:component-scan base-package="com.zjl.QiuQiu"> -->
-<!--         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/> -->
-<!--     </context:component-scan> -->
 </beans>

@@ -16,12 +16,12 @@ public abstract class RequestHandler {
 	/**
      * 日志，子类可访问
      */
-    protected final static Logger log = LoggerFactory.getLogger(RequestHandler.class);
+	public final static Logger log = LoggerFactory.getLogger(RequestHandler.class);
 
     /**
      * 多值分隔符
      */
-    protected final static String MULTI_VALUE_SEPARATOR = ";";
+    public final static String MULTI_VALUE_SEPARATOR = ";";
 
     /**
      * 调用此接口是否需要登录。
@@ -30,7 +30,7 @@ public abstract class RequestHandler {
      * </p>
      * @return 需要登录返回true，否则返回false
      */
-    protected boolean isLoginRequired() {
+    public boolean isLoginRequired() {
         return true;
     }
     /**
@@ -38,18 +38,18 @@ public abstract class RequestHandler {
      * @param iUser 用户
      * @return 有权限返回true，否则返回false
      */
-    protected abstract boolean hasRight(User iUser);
+    public abstract boolean hasRight(User iUser);
     /**
      * 检查业务参数是否合法，交由子类实现。
      * @param params 请求中携带的业务参数
      * @return 合法返回true，否则返回false
      */
-    protected abstract boolean checkParams(Map<String, Serializable> params);
+    public abstract boolean checkParams(Map<String, Serializable> params);
     /**
      * 业务处理，交由子类实现。
      * @param request 请求实体
      * @return 响应
      */
-    protected abstract Response bizHandle(HttpServletRequest request) throws RuntimeException;
+    public abstract Response bizHandle(HttpServletRequest request) throws RuntimeException;
 
 }

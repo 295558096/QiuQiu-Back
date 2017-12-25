@@ -17,18 +17,18 @@
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
 <!-- 	<context:component-scan base-package="com.zjl.QiuQiu.controller" /> -->
     <!-- 设置使用注解的类所在的jar包 ,DispatcherServlet上下文，只搜索@Controller标记的类-->
-    <context:component-scan base-package="com.zjl.QiuQiu.controller">
+    <context:component-scan base-package="com.zjl.QiuQiu">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
-<!-- 	<bean id="mappingJacksonHttpMessageConverter" -->
-<!-- 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"> -->
-<!-- 		<property name="supportedMediaTypes"> -->
-<!-- 			<list> -->
-<!-- 				<value>text/html;charset=UTF-8</value> -->
-<!-- 			</list> -->
-<!-- 		</property> -->
-<!-- 	</bean> -->
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
 	<!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
 <!-- 	<bean -->
 <!-- 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"> -->
